@@ -4,13 +4,14 @@ const invites = await allInvite();
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout titre="invite" nom="Invités">
   {
     invites.map((invite) => (
       <div>
         <img class="full-width" src={invite.img} alt="photo invite" />
-        <p>{invite.nom}</p>
-        <p>{invite.prenom}</p>
+        <p>
+          {invite.nom} {invite.prenom}
+        </p>
       </div>
     ))
   }

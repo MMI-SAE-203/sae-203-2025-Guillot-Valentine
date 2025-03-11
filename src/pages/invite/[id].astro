@@ -1,0 +1,22 @@
+---
+import { oneInvite } from "../../../backend/backend.mjs";
+import { allActiviteByInviteId } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params;
+const activite = await allActiviteByInviteId(id);
+const invite = await oneInvite(id);
+
+if (!invite) {
+  return Astro.redirect("/invite");
+}
+---
+
+<Layout nom="Invité">
+  <h1>
+    {invite.nom}
+    {invite.prenom}
+  </h1>
+    <img class="full-width" src={invite.img} alt="photo invite" />
+    <p>{invite.biographie}</p>
+</Layout>
