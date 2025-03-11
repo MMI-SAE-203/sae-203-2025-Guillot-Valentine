@@ -1,10 +1,56 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Paragraphe from "../components/Paragraphe.astro";
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout titre="accueil" nom="Edition 2025 du Festival CinéNature Du 5 au 8 Juillet 2025">
-  <h1>accueil</h1>
+<Layout
+  titre="accueil"
+  nom="Edition 2025 du Festival CinéNature Du 5 au 8 Juillet 2025"
+>
+  <Paragraphe
+    titre="Un Festival au Cœur de la Nature"
+    texte="Bienvenue sur le site officiel de notre festival de cinéma éco-responsable, un rendez-vous unique qui célèbre à la fois l'art et la planète. Notre mission : allier la création cinématographique avec des actions concrètes pour l'environnement. Vous êtes curieux d'en savoir plus sur l'esprit du festival ? Découvrez l'histoire, les engagements et la philosophie qui guident chaque aspect de cet événement."
+  />
+  <button></button>
+
+  <div class="grid lg:grid-cols-2 gap-2">
+    <div class="border border-orange1 bg-blanc px-7 py-6 mx-6 my-6 rounded-lg">
+      <h2>DATES CLÉS</h2>
+      <ul class="mt-6 ml-6 space-y-3">
+        <li>
+          <span class="font-bold">- 10 Janvier </span>- Annonces des films
+          sélectionnés
+        </li>
+        <li>
+          <span class="font-bold">- 20 Janvier </span>- Ouverture de la
+          billetterie
+        </li>
+        <li>
+          <span class="font-bold">- 1 Mars </span>- Annonces des ateliers et
+          activités
+        </li>
+        <li>
+          <span class="font-bold">- 5 au 8 Juillet </span>- Festival CinéNature
+        </li>
+      </ul>
+    </div>
+
+    <div class="border border-orange1 bg-blanc px-7 py-6 mx-6 my-6 rounded-lg">
+      <h2>BILLETTERIE</h2>
+      <p class="mt-6">
+        Réservez dès maintenant vos places pour vivre une expérience unique
+        alliant cinéma et nature, et rejoignez-nous sur la presqu'île du
+        Malsaucy du 5 au 8 juillet 2024 !
+      </p>
+      <button
+        class="block mx-auto text-blanc font-mulish font-bold bg-orange1 px-10 py-2 rounded-xl my-7"
+      >
+        BILLETTERIE
+      </button>
+    </div>
+  </div>
 </Layout>

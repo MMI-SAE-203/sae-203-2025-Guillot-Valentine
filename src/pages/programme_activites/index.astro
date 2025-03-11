@@ -2,16 +2,29 @@
 import { allActivite } from "../../../backend/backend.mjs";
 const activites = await allActivite();
 import Layout from "../../layouts/Layout.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
 ---
 
 <Layout titre="programme_activites" nom="Programme des Activités">
-  {
-    activites.map((activite) => (
-      <div>
-        <h1>{activite.titre}</h1>
-        <p>{activite.date}</p>
-        <p>{activite.description}</p>
-      </div>
-    ))
-  }
+  <Paragraphe
+    titre="Découvrez les activités de l'Édition 2025"
+    texte="Cette année encore, le festival propose une riche programmation d’activités pour éveiller les consciences et encourager les échanges autour des enjeux environnementaux et sociétaux. Ateliers participatifs, rencontres inspirantes et expériences immersives seront au rendez-vous pour sensibiliser petits et grands de manière ludique et interactive. Découvrez le programme détaillé de ces activités, ainsi que les horaires."
+  />
+  <div class="grid lg:grid-cols-2 mb-19">
+    {
+      activites.map((activite) => (
+        <div class="border-2 border-orange1 bg-blanc pt-3 p-5 my-4 mx-4 rounded items-center grid">
+          <p>{activite.date}</p>
+          <h2>{activite.titre}</h2>
+          <p>{activite.description}</p>
+          <a
+            class="underline py-5 text-vert font-bold"
+            href={`/programme_activites/${activite.id}`}
+          >
+            Voir plus
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </Layout>

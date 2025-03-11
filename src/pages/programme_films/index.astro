@@ -2,18 +2,16 @@
 import { allFilm } from "../../../backend/backend.mjs";
 const films = await allFilm();
 import Layout from "../../layouts/Layout.astro";
-
+import Card from "../../components/Card.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
 ---
 
 <Layout titre="programme_films" nom="Programme des films">
-  {
-    films.map((film) => (
-      <div>
-        <h1>{film.titre}</h1>
-        <img class="full-width" src={film.img} alt="affiche du film" />
-        <p>{film.date}</p>
-        <p>{film.synopsis}</p>
-      </div>
-    ))
-  }
+  <Paragraphe
+    titre="Découvrez la Sélection de l'Édition 2025"
+    texte="Cette année encore, le festival met à l’honneur des films engagés, explorant des thèmes environnementaux et sociétaux avec créativité et sensibilité. Voici un aperçu des films sélectionnés pour cette édition, accompagnés des informations sur leurs auteurs, ainsi que les dates et horaires de projection."
+  />
+  <div class="mb-19 grid grid-cols-1 lg:grid-cols-2 gap-2">
+  {films.map((film) => <Card {...film} />)}
+</div>
 </Layout>

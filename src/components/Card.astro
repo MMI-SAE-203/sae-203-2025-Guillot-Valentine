@@ -1,0 +1,26 @@
+---
+const { ...film } = Astro.props;
+console.log(film);
+---
+
+<div
+  class="border-2 border-orange1 bg-blanc pt-3 p-5 my-4 mx-4 rounded items-center grid lg:grid-cols-2"
+>
+  <div class="flex justify-center">
+    <img
+      class="w-150 h-auto lg:h-100 lg:w-auto"
+      src={film.img}
+      alt="Affiche du film"
+    />
+  </div>
+  <div>
+    <p class="py-5">{film.date}</p>
+    <h2>{film.titre}</h2>
+    <p class="pt-5"><span class="font-bold underline">Genre :</span> {film.genre}</p>
+    <p class="py-5">{film.synopsis}</p>
+    <a
+      class="underline py-5 text-orange1 font-bold"
+      href={`/programme_films/${film.id}`}>Voir plus</a
+    >
+  </div>
+</div>
