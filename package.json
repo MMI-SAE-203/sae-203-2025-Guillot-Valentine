@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.4.2",
-    "pocketbase": "^0.25.2"
+    "pocketbase": "^0.25.2",
+    "tailwind": "^4.0.0"
   }
 }

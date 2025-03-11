@@ -1,0 +1,17 @@
+---
+import { allInvite } from "../../../backend/backend.mjs";
+const invites = await allInvite();
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  {
+    invites.map((invite) => (
+      <div>
+        <img class="full-width" src={invite.img} alt="photo invite" />
+        <p>{invite.nom}</p>
+        <p>{invite.prenom}</p>
+      </div>
+    ))
+  }
+</Layout>

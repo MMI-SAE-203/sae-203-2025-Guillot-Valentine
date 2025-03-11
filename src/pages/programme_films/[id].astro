@@ -1,0 +1,26 @@
+---
+import { oneFilm } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params;
+const film = await oneFilm(id);
+console.log(film);
+
+if (!film) {
+  return Astro.redirect("/offres");
+}
+---
+
+<Layout>
+  <h1>{film.titre}</h1>
+  <img class="full-width" src={film.img} alt="affiche du film" />
+  <p>{film.date}</p>
+  <p>{film.duree}</p>
+  <p>{film.synopsis}</p>
+  <p>{film.genre}</p>
+  <p>{film.langue}</p>
+  <p>{film.production}</p>
+  <p>{film.liste_acteur}</p>
+  <p>{film.invite}</p>
+  <p>{film.bandeannonce}</p>
+</Layout>

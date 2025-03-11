@@ -1,0 +1,19 @@
+---
+import { allFilm } from "../../../backend/backend.mjs";
+const films = await allFilm();
+import Layout from "../../layouts/Layout.astro";
+
+---
+
+<Layout>
+  {
+    films.map((film) => (
+      <div>
+        <h1>{film.titre}</h1>
+        <img class="full-width" src={film.img} alt="affiche du film" />
+        <p>{film.date}</p>
+        <p>{film.synopsis}</p>
+      </div>
+    ))
+  }
+</Layout>
