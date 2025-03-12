@@ -1,0 +1,11 @@
+---
+import Fleche from "../assets/icons/fleche.svg";
+const { texte } = Astro.props;
+---
+
+<button
+  class="flex gap-2 border border-orange1 text-gray uppercase py-4 px-4 mb-11 bg-blanc ml-auto mr-20"
+>
+  <span class="mt-1"><Fleche /></span>
+  <a class="text-gris text-xs font-semibold" href="">{texte}</a>
+</button>
