@@ -1,9 +1,13 @@
 ---
 import { oneInvite } from "../../../backend/backend.mjs";
 import { allActiviteByInviteId } from "../../../backend/backend.mjs";
+import {allFilmByInviteId} from "../../../backend/backend.mjs";
+import ImagePB from "../../components/ImagePB.astro";
 import Layout from "../../layouts/Layout.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
 
 const { id } = Astro.params;
+const film = await allFilmByInviteId(id);
 const activite = await allActiviteByInviteId(id);
 const invite = await oneInvite(id);
 
@@ -13,10 +17,41 @@ if (!invite) {
 ---
 
 <Layout nom="Invité">
-  <h1>
-    {invite.nom}
-    {invite.prenom}
-  </h1>
-    <img class="full-width" src={invite.img} alt="photo invite" />
+  <div class="lg:justify-start lg:flex-row flex-col lg:grid-cols-2 grid items-center mt-10 my-10">
+    <div class="flex justify-center">
+      <ImagePB
+        record={invite}
+        field="photo"
+        alt={invite.Alt}
+        classPicture="w-80 lg:w-100 h-auto "
+        classImg="flex h-auto w-80 lg:w-100 lg:h-auto full-width border-2 border-orange1 bg-blanc mb-5 lg:mx-15 rounded items-center"
+      />
+    </div>
+    <div class="lg:my-10 mx-5 space-y-3">
+    <h2>
+      {invite.prenom}
+      {invite.nom}
+    </h2>
     <p>{invite.biographie}</p>
+    <p><span class="font-bold">Rôle :</span> {invite.role}</p>
+    <p><span class="font-bold">E-mail :</span> {invite.email}</p>
+   <h2 class="mt-10">Films / Activités associées</h2>
+   <span class="block w-5 h-1 ml-4 my-4 bg-vert rounded"></span>
+    {
+      activite.map((act) => (
+        
+          <p class="font-bold text-xl">{act.titre}</p>
+          <p>{act.description}</p>
+        
+      ))
+    }
+    {
+      film.map((act) => (
+        
+          <p class="font-bold text-xl">{act.titre}</p>
+          <p>{act.synopsis}</p>
+        
+      ))
+    }</div>
+  </div>
 </Layout>

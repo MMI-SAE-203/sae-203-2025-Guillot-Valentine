@@ -3,6 +3,7 @@ import { allActivite } from "../../../backend/backend.mjs";
 const activites = await allActivite();
 import Layout from "../../layouts/Layout.astro";
 import Paragraphe from "../../components/Paragraphe.astro";
+import { formatDate } from "../../../backend/helpers.js";
 ---
 
 <Layout titre="programme_activites" nom="Programme des Activités">
@@ -14,7 +15,7 @@ import Paragraphe from "../../components/Paragraphe.astro";
     {
       activites.map((activite) => (
         <div class="border-2 border-orange1 bg-blanc pt-3 p-5 my-4 mx-4 rounded items-center grid">
-          <p>{activite.date}</p>
+          <h3 class="mb-3">{formatDate(activite.date)}</h3>
           <h2>{activite.titre}</h2>
           <p>{activite.description}</p>
           <a

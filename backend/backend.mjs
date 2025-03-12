@@ -11,7 +11,7 @@ export async function allFilm() {
 }
 
 export async function oneFilm(id) {
-    const records = await pb.collection('film').getOne(id);
+    let records = await pb.collection('film').getOne(id);
     return records;
 }
 
@@ -36,10 +36,6 @@ export async function allInvite() {
 
 export async function oneInvite(id) {
     let records = await pb.collection('invite').getOne(id);
-    records = records.map((invite) => {
-            invite.img = pb.files.getURL(invite, invite.photo);
-            return invite;
-        });
     return records;
 }
 
@@ -68,3 +64,14 @@ export async function updateById(collectionName, id, data) {
     }
 
 }
+
+export async function allFilmByInviteId(id) {
+    const records = await pb.collection('film').getFullList({
+        filter: `invite.id = '${id}' `,
+        expand: 'invite',
+    });
+    return records;
+}
+
+// Exportation de l'instance PocketBase pour l'utiliser dans d'autres fichiers
+export { pb };

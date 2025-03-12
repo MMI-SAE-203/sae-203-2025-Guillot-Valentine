@@ -1,6 +1,8 @@
 ---
 const { ...film } = Astro.props;
 console.log(film);
+import Fleche from "../assets/icons/fleche.svg";
+import { formatDate } from "../../backend/helpers.js";
 ---
 
 <div
@@ -14,13 +16,29 @@ console.log(film);
     />
   </div>
   <div>
-    <p class="py-5">{film.date}</p>
+    <h3 class="py-5">{formatDate(film.date)}</h3>
     <h2>{film.titre}</h2>
-    <p class="pt-5"><span class="font-bold underline">Genre :</span> {film.genre}</p>
+    <p class="pt-5">
+      <span class="font-bold underline">Genre :</span>
+      {film.genre}
+    </p>
+    <p class="pt-2">
+      <span class="font-bold underline">Lieu :</span>
+      {film.lieu}
+    </p>
     <p class="py-5">{film.synopsis}</p>
-    <a
-      class="underline py-5 text-orange1 font-bold"
-      href={`/programme_films/${film.id}`}>Voir plus</a
+    <button
+      class="flex gap-2 border border-orange1 text-gray uppercase py-4 px-4 mb-11 bg-blanc ml-auto mr-20"
     >
+      <span class="mt-1">
+        <Fleche />
+      </span>
+      <a
+        class="text-gris text-xs font-semibold"
+        href={`/programme_films/${film.id}`}
+      >
+        En savoir plus
+      </a>
+    </button>
   </div>
 </div>

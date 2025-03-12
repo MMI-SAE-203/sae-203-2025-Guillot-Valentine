@@ -8,5 +8,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   experimental: {svg: true},
+  output: 'server',
   vite: {plugins: [tailwindcss()],},
 });
