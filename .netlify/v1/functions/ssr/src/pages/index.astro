@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Paragraphe from "../components/Paragraphe.astro";
+import Bouton from "../components/Button.astro";
+import { Image } from "astro:assets";
+import ImgContact from "../assets/img/accueil_contact.webp";
+import ImgInfos from "../assets/img/accueil_infos.webp";
+import ImgInvites from "../assets/img/accueil_invités.webp";
+import ImgProgramme from "../assets/img/accueil_programme.webp";
+import LogoTB from "../assets/icons/territoire_belfort.svg";
+import LogoBFC from "../assets/icons/region_bfc.svg";
+import LogoUFC from "../assets/icons/universite_fc.svg";
+import LogoFNE from "../assets/icons/fne.svg";
+import LogoER from "../assets/icons/est_republicain.svg";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout
+  titre="accueil"
+  nom="Edition 2025 du Festival CinéNature Du 5 au 8 Juillet 2025"
+>
+  <Paragraphe
+    titre="Un Festival au Cœur de la Nature"
+    texte="Bienvenue sur le site officiel de notre festival de cinéma éco-responsable, un rendez-vous unique qui célèbre à la fois l'art et la planète. Notre mission : allier la création cinématographique avec des actions concrètes pour l'environnement. Vous êtes curieux d'en savoir plus sur l'esprit du festival ? Découvrez l'histoire, les engagements et la philosophie qui guident chaque aspect de cet événement."
+  />
+  <Bouton texte="En savoir plus" />
+
+  <div class="grid lg:grid-cols-2 gap-2">
+    <div class="border border-orange1 bg-blanc px-7 py-6 mx-6 my-6 rounded-lg">
+      <h2>DATES CLÉS</h2>
+      <ul class="mt-6 ml-6 space-y-3">
+        <li>
+          <span class="font-bold">- 10 Janvier </span>- Annonces des films
+          sélectionnés
+        </li>
+        <li>
+          <span class="font-bold">- 20 Janvier </span>- Ouverture de la
+          billetterie
+        </li>
+        <li>
+          <span class="font-bold">- 1 Mars </span>- Annonces des ateliers et
+          activités
+        </li>
+        <li>
+          <span class="font-bold">- 5 au 8 Juillet </span>- Festival CinéNature
+        </li>
+      </ul>
+    </div>
+
+    <div class="border border-orange1 bg-blanc px-7 py-6 mx-6 my-6 rounded-lg">
+      <h2>BILLETTERIE</h2>
+      <p class="mt-6">
+        Réservez dès maintenant vos places pour vivre une expérience unique
+        alliant cinéma et nature, et rejoignez-nous sur la presqu'île du
+        Malsaucy du 5 au 8 juillet 2024 !
+      </p>
+      <button
+        class="block mx-auto text-blanc font-mulish font-bold bg-orange1 px-10 py-2 rounded-xl my-7"
+      >
+        BILLETTERIE
+      </button>
+    </div>
+  </div>
+
+  <Image
+    class="w-full max-w lg:h-100 object-cover"
+    src={ImgProgramme}
+    alt="programme"
+  />
+  <Paragraphe
+    titre="Programme 2025 : Une Expérience Unique en Plein Air"
+    texte="L'édition 2025 s'annonce pleine de nouveautés ! Du 5 au 8 juillet, la presqu'île du Malsaucy accueillera une programmation riche et engagée, avec des projections en plein air, des documentaires poignants et des films d'auteur sur des thématiques sociétales et environnementales. Pour un aperçu complet des films et des activités prévues cette année, rendez-vous ci-dessous..."
+  />
+  <Bouton ref="/programme_films" texte="En savoir plus" />
+
+  <Image
+    class="w-full max-w lg:h-100 object-cover"
+    src={ImgInvites}
+    alt="invites"
+  />
+  <Paragraphe
+    titre="Les talents derrière Cinénature"
+    texte="Découvrez les visages qui donnent vie cette année à Cinénature sur notre page Invités. Réalisateurs visionnaires, acteurs engagés et membres du jury, plongez dans l’univers de ces talents inspirants qui partagent leur passion et leur vision au cœur du festival."
+  />
+  <Bouton ref="/invite" texte="En savoir plus" />
+
+  <Image
+    class="w-full max-w lg:h-100 object-cover"
+    src={ImgInfos}
+    alt="infos pratiques"
+  />
+  <Paragraphe
+    titre="Infos Pratiques : Préparez votre venue au Festival"
+    texte="Enfin, pour que votre expérience au festival soit la plus agréable possible, ne manquez pas de consulter notre page Infos Pratiques. Vous y trouverez des détails sur les accès, les horaires, les hébergements, ainsi que les solutions de transport durable que nous vous recommandons."
+  />
+  <Bouton ref="/infos_pratiques" texte="En savoir plus" />
+
+  <Image
+    class="w-full max-w lg:h-100 object-cover"
+    src={ImgContact}
+    alt="contact"
+  />
+  <Paragraphe
+    titre="Contactez-nous : L'Équipe à Votre Écoute"
+    texte="Vous avez des questions ou souhaitez entrer en contact avec l'équipe ? Nous serions ravis de discuter avec vous ! Que vous soyez cinéaste, spectateur ou partenaire, vous trouverez toutes les informations nécessaires sur la page Contact, ainsi qu'un formulaire pour faciliter vos demandes."
+  />
+  <Bouton ref="/contact" texte="En savoir plus" />
+
+  <div
+    class="grid lg:grid-cols-2 border border-orange1 bg-blanc px-7 py-6 mx-6 mt-6 mb-19 rounded-lg"
+  >
+    <div>
+      <h2>Nos Partenaires</h2>
+      <ul class="font-bold mt-6 ml-6 space-y-3">
+        <li>- Département du Territoire de Belfort</li>
+        <li>- Région Bourgogne-Franche-Comté</li>
+        <li>- Université de Franche-Comté</li>
+        <li>- France Nature Environnement (FNE) Bourgogne-Franche-Comté</li>
+        <li>- L'Est Républicain</li>
+      </ul>
+    </div>
+    <div class="grid grid-cols-3 pt-4 space-y-2">
+      <Image src={LogoTB} alt="logo Territoire de Belfort" />
+      <Image src={LogoBFC} alt="logo Bourgogne-Franche-Comté" />
+      <Image src={LogoUFC} alt="logo Université de Franche-Comté" />
+      <Image src={LogoFNE} alt="logo France Nature Environnement" />
+      <Image src={LogoER} alt="logo L'Est Républicain" />
+    </div>
+  </div>
+</Layout>

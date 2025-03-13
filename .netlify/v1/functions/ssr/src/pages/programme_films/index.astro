@@ -1,0 +1,43 @@
+---
+import { allFilm } from "../../../backend/backend.mjs";
+const films = await allFilm();
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
+import Fleche from "../../assets/icons/fleche.svg";
+
+const genres = ["Documentaire", "Drame", "Biopic", "Fantastique", "Romance", "Science-fiction"];
+---
+
+<Layout titre="programme_films" nom="Programme des films">
+  <Paragraphe
+    titre="Découvrez la Sélection de l'Édition 2025"
+    texte="Cette année encore, le festival met à l’honneur des films engagés, explorant des thèmes environnementaux et sociétaux avec créativité et sensibilité. Voici un aperçu des films sélectionnés pour cette édition, accompagnés des informations sur leurs auteurs, ainsi que les dates et horaires de projection."
+  />
+  <div class="flex flex-wrap justify-center gap-6 mt-8">
+    {
+      genres.map((g) => (
+        <a
+          href={`/programme_films/genre/${g}`}
+          class="relative px-6 py-3 text-lg font-semibold text-orange1 bg-blanc backdrop-blur-md rounded-full shadow-md 
+               transition-all duration-300 ease-in-out hover:bg-rose hover:shadow-xl hover:-translate-y-1 
+               before:absolute before:inset-0 before:bg-white/10 before:rounded-full before:opacity-0 before:transition-opacity before:duration-300
+               active:scale-95 active:before:opacity-50"
+        >
+          {g}
+        </a>
+      ))
+    }
+  </div>
+  <div class="mb-19 grid grid-cols-1 lg:grid-cols-2 gap-2">
+    {films.map((film) => <Card {...film} />)}
+  </div>
+  <button
+    class="flex gap-2 underline decoration-orange1 py-4 px-4 mb-19 ml-auto mr-20 rounded-2xl"
+  >
+    <span class="mt-1"><Fleche /></span>
+    <a class="text-orange1 text-xs font-bold" href={`/programme_films/add`}
+      >Ajouter un film</a
+    >
+  </button>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import { allActivite } from "../../../backend/backend.mjs";
+const activites = await allActivite();
+import Layout from "../../layouts/Layout.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
+import { formatDate } from "../../../backend/helpers.js";
+import Fleche from "../../assets/icons/fleche.svg";
+---
+
+<Layout titre="programme_activites" nom="Programme des Activités">
+  <Paragraphe
+    titre="Découvrez les activités de l'Édition 2025"
+    texte="Cette année encore, le festival propose une riche programmation d’activités pour éveiller les consciences et encourager les échanges autour des enjeux environnementaux et sociétaux. Ateliers participatifs, rencontres inspirantes et expériences immersives seront au rendez-vous pour sensibiliser petits et grands de manière ludique et interactive. Découvrez le programme détaillé de ces activités, ainsi que les horaires."
+  />
+  <div class="grid lg:grid-cols-2 mb-19">
+    {
+      activites.map((activite) => (
+        <div class="border-2 border-orange1 bg-blanc pt-3 p-5 my-4 mx-4 rounded items-center grid">
+          <h3 class="mb-3">{formatDate(activite.date)}</h3>
+          <h2>{activite.titre}</h2>
+          <p>{activite.description}</p>
+          <a
+            class="underline py-5 text-vert font-bold"
+            href={`/programme_activites/${activite.id}`}
+          >
+            Voir plus
+          </a>
+        </div>
+      ))
+    }
+  </div>
+  <button
+    class="flex gap-2 underline decoration-orange1 py-4 px-4 mb-19 ml-auto mr-20 rounded-2xl"
+  >
+    <span class="mt-1"><Fleche /></span>
+    <a class="text-orange1 text-xs font-bold" href={`/programme_activites/add`}
+      >Ajouter une activité</a
+    >
+  </button>
+</Layout>

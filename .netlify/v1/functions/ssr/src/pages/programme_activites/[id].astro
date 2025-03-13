@@ -1,0 +1,33 @@
+---
+import { oneActivite } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import Paragraphe from "../../components/Paragraphe.astro";
+import { formatDate } from "../../../backend/helpers.js";
+
+const { id } = Astro.params;
+const activite = await oneActivite(id);
+console.log(activite);
+
+if (!activite) {
+  return Astro.redirect("/programme_activites");
+}
+---
+
+<Layout nom={activite.titre}>
+  <div
+    class="lg:my-10 mx-5 space-y-3 lg:justify-start lg:flex-row flex-col lg:grid-cols-2 grid items-center mt-10"
+  >
+    <div>
+      <h3>{formatDate(activite.date)}</h3>
+      <h2>{activite.titre}</h2>
+      <Paragraphe titre="Description" texte={activite.description} />
+    </div>
+      <div class="mx-6 lg:mx-10 mb-19 space-y-3">
+        <h2 class="mt-10">Information</h2>
+      <span class="block w-5 h-1 ml-4 my-4 bg-vert rounded"></span>
+        <p><span class="font-bold">Genre :</span> {activite.type}</p>
+        <p><span class="font-bold">Lieu :</span> {activite.lieu}</p>
+        <p><span class="font-bold">Animateur :</span> {activite.expand?.invite.prenom} {activite.expand?.invite.nom}</p></p>
+      </div>
+  </div>
+</Layout>

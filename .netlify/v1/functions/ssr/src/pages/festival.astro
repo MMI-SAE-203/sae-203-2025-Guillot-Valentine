@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Paragraphe from "../components/Paragraphe.astro";
+import LogoFestival from "../assets/icons/logofestival_sombre.svg";
+import { Image } from "astro:assets";
+
+import ImgAtelier from "../assets/img/atelier_rencontre.webp";
+import ImgEngagement from "../assets/img/engagement_ecologique.webp";
+import ImgScene from "../assets/img/scene_locale.webp";
+import ImgAccessible from "../assets/img/festival_accessible.webp";
+import ImgCarousel1 from "../assets/img/carousel_1.webp";
+import ImgCarousel2 from "../assets/img/carousel_2.webp";
+import ImgCarousel3 from "../assets/img/carousel_3.webp";
+import Carousel from "../components/Carousel.astro";
+
+const events = [
+  { title: "Image 1", img: ImgCarousel1.src },
+  { title: "Image 2", img: ImgCarousel2.src },
+  { title: "Image 3", img: ImgCarousel3.src },
+];
+---
+
+<Layout titre="le_festival" nom="Le Festival">
+  <div class="flex justify-center pt-11"><LogoFestival /></div>
+  <Paragraphe
+    titre="Un Festival Éco-responsable en Harmonie"
+    texte="Né d’une initiative locale en 2019, Cinénature a été créé pour sensibiliser le public à travers le cinéma, tout en valorisant des talents locaux. Depuis sa première édition, le festival n'a cessé de croître, devenant un rendez-vous incontournable pour les amateurs de films engagés et les défenseurs de l'écologie. L'objectif principal de Cinénature est de créer un espace où l'art et la nature se rencontrent pour inspirer des solutions durables."
+  />
+  <p class="pb-6 mx-6 lg:mx-10">
+    Les réalisateurs et créateurs que nous mettons en avant partagent tous un
+    désir de sensibilisation et d'innovation. Nous croyons que le cinéma peut
+    être un moteur de changement, et chaque édition est pensée pour éveiller les
+    consciences à travers des documentaires percutants, des films d'auteur
+    engagés et des discussions ouvertes sur les défis actuels.
+  </p>
+  <div class="mt-10">
+    <Image
+      src={ImgAtelier}
+      alt="Atelier"
+      class="w-full max-w lg:h-100 object-cover"
+    />
+    <Paragraphe
+      titre="Des Ateliers et Rencontres Inspirantes"
+      texte="Le festival ne se limite pas aux projections. C'est aussi un lieu de partage et d'échange où les festivaliers peuvent participer à des ateliers pratiques, des discussions avec les réalisateurs et des séances d'apprentissage autour du cinéma éco-responsable.Notre objectif est de créer une plateforme pour les créateurs amateurs et professionnels afin qu'ils puissent discuter des nouvelles technologies, des solutions pour réduire l'empreinte écologique de l'industrie du cinéma, et explorer ensemble de nouvelles perspectives."
+    />
+  </div>
+
+  <div class="mt-10">
+    <Image
+      src={ImgScene}
+      alt="Scene locale"
+      class="w-full max-w lg:h-100 object-cover"
+    />
+    <Paragraphe
+      titre="Une Scène Locale à l'Honneur"
+      texte="Soutenir les talents locaux est l’une des pierres angulaires de notre festival. À chaque édition, nous veillons à offrir un espace privilégié pour les réalisateurs et les artistes de la région. À travers des projections spéciales et des événements dédiés, nous voulons donner de la visibilité à ceux qui contribuent au dynamisme culturel de notre territoire. C’est une opportunité unique pour les créateurs de faire découvrir leurs œuvres à un public varié et engagé, dans un cadre naturel exceptionnel."
+    />
+  </div>
+
+  <div class="mt-10">
+    <Image
+      src={ImgEngagement}
+      alt="Engagement écologique"
+      class="w-full max-w lg:h-100 object-cover"
+    />
+    <Paragraphe
+      titre="Un Engagement Écologique Concret"
+      texte="Notre démarche éco-responsable va au-delà du thème de nos films. Le festival intègre des actions concrètes pour réduire son impact environnemental. Cela se traduit par une gestion responsable des déchets, l'utilisation d’énergies renouvelables, et une attention particulière portée à la consommation locale. Nous mettons en place des mesures pour minimiser l'empreinte carbone, notamment à travers des moyens de transport alternatifs et la réduction des plastiques à usage unique."
+    />
+  </div>
+  <div class="my-10">
+    <Image
+      src={ImgAccessible}
+      alt="Festival accessible"
+      class="w-full max-w lg:h-100 object-cover"
+    />
+    <Paragraphe
+      titre="Un Festival Accessible à Tous"
+      texte="L’accessibilité est au cœur de nos préoccupations. Nous avons à cœur d'offrir une expérience inclusive, pour que chacun puisse profiter du festival, quel que soit son âge, ses capacités ou ses moyens financiers. Des dispositifs sont mis en place pour faciliter l'accès aux personnes en situation de handicap, ainsi que des tarifs réduits pour encourager un public diversifié à participer."
+    />
+  </div>
+
+  <div class="mb-19">
+    <Paragraphe
+      titre="Notre Équipe"
+      texte="Derrière Cinénature se cache une équipe passionnée et investie :"
+    />
+    <ul class="space-y-4 mx-11 lg:mx-15">
+      <li>
+        <span class="font-bold">- Organisateurs : </span>Une petite structure
+        locale qui coordonne chaque édition avec soin et créativité.
+      </li>
+      <li>
+        <span class="font-bold">- Équipe technique : </span>Des professionnels
+        et bénévoles qui assurent les projections, la logistique et
+        l’aménagement des espaces.
+      </li>
+      <li>
+        <span class="font-bold">- Bénévoles : </span>Une force vive
+        indispensable, composée de personnes de tous horizons, prêtes à
+        contribuer au succès du festival.
+      </li>
+    </ul>
+  </div>
+
+  <Carousel
+    img1="/src/assets/img/carousel_1.webp"
+    img2="/src/assets/img/carousel_2.webp"
+    img3="/src/assets/img/carousel_3.webp"
+  />
+</Layout>
