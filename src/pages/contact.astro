@@ -1,6 +1,9 @@
 ---
 import IconLettre from "../assets/icons/icone_lettre.svg";
 import IconTelephone from "../assets/icons/icone_telephone.svg";
+import LogoFacebook from "../assets/icons/facebook.svg";
+import LogoInstagram from "../assets/icons/instagram.svg";
+import LogoTiktok from "../assets/icons/tiktok.svg";
 
 import Layout from "../layouts/Layout.astro";
 import Paragraphe from "../components/Paragraphe.astro";
@@ -18,7 +21,7 @@ import Paragraphe from "../components/Paragraphe.astro";
     enctype="multipart/form-data"
   >
     <span
-      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*'] ..."
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
       >Nom</span
     >
     <input
@@ -30,7 +33,7 @@ import Paragraphe from "../components/Paragraphe.astro";
     />
 
     <span
-      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*'] ..."
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
       >Prénom</span
     >
     <input
@@ -42,7 +45,7 @@ import Paragraphe from "../components/Paragraphe.astro";
     />
 
     <span
-      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*'] ..."
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
       >Email</span
     >
     <input
@@ -53,7 +56,7 @@ import Paragraphe from "../components/Paragraphe.astro";
       class="p-2 border border-noir rounded-md text-orange1 font-mulish"
     />
     <span
-      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*'] ..."
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
       >Message</span
     >
     <input
@@ -78,5 +81,17 @@ import Paragraphe from "../components/Paragraphe.astro";
       href="mailto:festival.cinenature@agglo-belfort.fr"
       ><IconLettre />festival.cinenature@agglo-belfort.fr</a
     >
+  </div>
+  <Paragraphe titre="Réseaux Sociaux" texte="" />
+  <div class="mx-6 lg:mx-10 mb-19 flex gap-5">
+    <a href="https://facebook.com" aria-label="Visitez notre page facebook">
+      <LogoFacebook />
+    </a>
+    <a href="https://instagram.com" aria-label="Visitez notre page instagram">
+      <LogoInstagram />
+    </a>
+    <a href="https://tiktok.com" aria-label="Visitez notre page tiktok">
+      <LogoTiktok />
+    </a>
   </div>
 </Layout>

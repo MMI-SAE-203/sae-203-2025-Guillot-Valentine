@@ -4,6 +4,7 @@ const activites = await allActivite();
 import Layout from "../../layouts/Layout.astro";
 import Paragraphe from "../../components/Paragraphe.astro";
 import { formatDate } from "../../../backend/helpers.js";
+import Fleche from "../../assets/icons/fleche.svg";
 ---
 
 <Layout titre="programme_activites" nom="Programme des Activités">
@@ -28,4 +29,12 @@ import { formatDate } from "../../../backend/helpers.js";
       ))
     }
   </div>
+  <button
+    class="flex gap-2 underline decoration-orange1 py-4 px-4 mb-19 ml-auto mr-20 rounded-2xl"
+  >
+    <span class="mt-1"><Fleche /></span>
+    <a class="text-orange1 text-xs font-bold" href={`/programme_activites/add`}
+      >Ajouter une activité</a
+    >
+  </button>
 </Layout>

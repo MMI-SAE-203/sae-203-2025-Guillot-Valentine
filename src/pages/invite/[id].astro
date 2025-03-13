@@ -4,7 +4,7 @@ import { allActiviteByInviteId } from "../../../backend/backend.mjs";
 import {allFilmByInviteId} from "../../../backend/backend.mjs";
 import ImagePB from "../../components/ImagePB.astro";
 import Layout from "../../layouts/Layout.astro";
-import Paragraphe from "../../components/Paragraphe.astro";
+import Button from "../../components/Button.astro";
 
 const { id } = Astro.params;
 const film = await allFilmByInviteId(id);
@@ -42,7 +42,7 @@ if (!invite) {
         
           <p class="font-bold text-xl">{act.titre}</p>
           <p>{act.description}</p>
-        
+          <Button ref={`/programme_activites/${act.id}`} texte="En savoir plus" />
       ))
     }
     {
@@ -50,8 +50,10 @@ if (!invite) {
         
           <p class="font-bold text-xl">{act.titre}</p>
           <p>{act.synopsis}</p>
+          <Button ref={`/programme_films/${act.id}`} texte="En savoir plus" />
         
       ))
     }</div>
   </div>
+  
 </Layout>

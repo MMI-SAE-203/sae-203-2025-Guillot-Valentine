@@ -1,1 +1,43 @@
+---
+const { img1 } = Astro.props;
+const { img2 } = Astro.props;
+const { img3 } = Astro.props;
+---
 
+<section class="mx-auto bg-gris1 p-6 mt-6 mb-19 text-white text-center">
+  <div class="lg:w-150 w-full overflow-hidden relative mx-auto">
+    <div
+      class="flex gap-4 overflow-x-scroll scroll-smooth snap-x justify-center"
+      id="carrousel"
+    >
+      <div class="flex-none w-full snap-center">
+        <img src={img1} alt="" class="w-full rounded-lg" />
+      </div>
+      <div class="flex-none w-full snap-center">
+        <img src={img1} alt="" class="w-full rounded-lg" />
+      </div>
+      <div class="flex-none w-full snap-center">
+        <img src={img1} alt="" class="w-full rounded-lg" />
+      </div>
+      <div class="flex-none w-150 snap-center">
+        <img src={img2} alt="" class="w-full rounded-lg" />
+      </div>
+      <div class="flex-none w-150 snap-center">
+        <img src={img3} alt="" class="w-full rounded-lg" />
+      </div>
+    </div>
+    <button
+      class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2"
+      onclick="document.getElementById('carrousel').scrollBy({left: -600, behavior: 'smooth'})"
+    >
+      &lt;
+    </button>
+    <button
+      class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2"
+      onclick="document.getElementById('carrousel').scrollBy({left: 600, behavior: 'smooth'})"
+    >
+      &gt;
+    </button>
+  </div>
+  <div class="mt-4 text-right"></div>
+</section>

@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Paragraphe from "../components/Paragraphe.astro";
 import LogoFestival from "../assets/icons/logofestival_sombre.svg";
 import { Image } from "astro:assets";
-import Carousel from "../components/Carousel.astro";
 
 import ImgAtelier from "../assets/img/atelier_rencontre.webp";
 import ImgEngagement from "../assets/img/engagement_ecologique.webp";
@@ -12,6 +11,13 @@ import ImgAccessible from "../assets/img/festival_accessible.webp";
 import ImgCarousel1 from "../assets/img/carousel_1.webp";
 import ImgCarousel2 from "../assets/img/carousel_2.webp";
 import ImgCarousel3 from "../assets/img/carousel_3.webp";
+import Carousel from "../components/Carousel.astro";
+
+const events = [
+  { title: "Image 1", img: ImgCarousel1.src },
+  { title: "Image 2", img: ImgCarousel2.src },
+  { title: "Image 3", img: ImgCarousel3.src },
+];
 ---
 
 <Layout titre="le_festival" nom="Le Festival">
@@ -96,4 +102,10 @@ import ImgCarousel3 from "../assets/img/carousel_3.webp";
       </li>
     </ul>
   </div>
+
+  <Carousel
+    img1="/src/assets/img/carousel_1.webp"
+    img2="/src/assets/img/carousel_2.webp"
+    img3="/src/assets/img/carousel_3.webp"
+  />
 </Layout>

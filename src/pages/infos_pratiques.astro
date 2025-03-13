@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Paragraphe from "../components/Paragraphe.astro";
 import Button from "../components/Button.astro";
+import Carousel from "../components/Carousel.astro";
 
 import IconMaison from "../assets/icons/icone_maison.svg";
 import IconPersonne from "../assets/icons/icone_personne.svg";
@@ -19,6 +20,11 @@ import { Image } from "astro:assets";
   <Paragraphe
     titre="Nos Tarifs"
     texte="Découvrez nos formules accessibles à tous. Que vous veniez pour une journée ou pour toute la durée du festival, nos tarifs sont pensés pour encourager chacun à participer."
+  />
+  <Carousel
+    img1="/src/assets/img/carouseltarif_1.webp"
+    img2="/src/assets/img/carouseltarif_2.webp"
+    img3="/src/assets/img/carouseltarif_3.webp"
   />
   <Button ref="#" texte="Billetterie" />
 
@@ -172,26 +178,68 @@ import { Image } from "astro:assets";
     titre="FAQ"
     texte="Vous avez une question ? Retrouvez ici les réponses aux interrogations les plus courantes pour préparer votre visite à Cinénature."
   />
-  <div class="mx-6 mb-5 lg:mx-10">
-    <h3 class="text-orange1">Que puis-je apporter au festival ?</h3>
-    <p>
-      Vous êtes libres d’apporter votre plaid ou chaise pliante pour plus de
-      confort lors des projections en plein air. Cependant, les bouteilles en
-      plastique et contenants jetables ne sont pas autorisés afin de limiter les
-      déchets.
-    </p>
-    <h3 class="text-vert mt-5">Y a-t-il des options de restauration ?</h3>
-    <p>
-      Oui, le festival propose plusieurs stands de restauration mettant en avant
-      des produits locaux, bio et végétariens. Pensez à apporter vos propres
-      contenants pour profiter des réductions zéro déchet !
-    </p>
-    <h3 class="text-orange1 mt-5">Que faire en cas de mauvais temps ?</h3>
-    <p>
-      Le festival aura lieu quelles que soient les conditions météo. Des espaces
-      couverts seront disponibles pour les projections en cas de pluie.
-    </p>
+  <div
+    x-data="{ openTab: null }"
+    class="w-full max-w-2xl mx-auto mt-8 space-y-4"
+  >
+    <div class="border border-gris1 rounded-lg">
+      <button
+        @click="openTab === 1 ? openTab = null : openTab = 1"
+        class="w-full flex justify-between items-center p-4 text-left bg-blanc hover:bg-gray-200"
+      >
+        <h3 class="text-vert font-semibold">
+          Que puis-je apporter au festival ?
+        </h3>
+        <span x-show="openTab !== 1">+</span>
+        <span x-show="openTab === 1">−</span>
+      </button>
+      <p x-show="openTab === 1" x-collapse class="p-4 bg-blanc">
+        Vous êtes libres d’apporter votre plaid ou chaise pliante pour plus de
+        confort lors des projections en plein air. Cependant, les bouteilles en
+        plastique et contenants jetables ne sont pas autorisés afin de limiter
+        les déchets.
+      </p>
+    </div>
+    <div class="border border-gris1 rounded-lg">
+      <button
+        @click="openTab === 2 ? openTab = null : openTab = 2"
+        class="w-full flex justify-between items-center p-4 text-left bg-blanc hover:bg-gray-200"
+      >
+        <h3 class="text-orange1 font-semibold">
+          Y a-t-il des options de restauration ?
+        </h3>
+        <span x-show="openTab !== 2">+</span>
+        <span x-show="openTab === 2">−</span>
+      </button>
+      <p x-show="openTab === 2" x-collapse class="p-4 bg-blanc">
+        Oui, le festival propose plusieurs stands de restauration mettant en
+        avant des produits locaux, bio et végétariens. Pensez à apporter vos
+        propres contenants pour profiter des réductions zéro déchet !
+      </p>
+    </div>
+    <div class="border border-gris1 rounded-lg">
+      <button
+        @click="openTab === 3 ? openTab = null : openTab = 3"
+        class="w-full flex justify-between items-center p-4 text-left bg-gray-100 hover:bg-gray-200"
+      >
+        <h3 class="text-vert font-semibold">
+          Que faire en cas de mauvais temps ?
+        </h3>
+        <span x-show="openTab !== 3">+</span>
+        <span x-show="openTab === 3">−</span>
+      </button>
+      <p x-show="openTab === 3" x-collapse class="p-4 bg-blanc">
+        Le festival aura lieu quelles que soient les conditions météo. Des
+        espaces couverts seront disponibles pour les projections en cas de
+        pluie.
+      </p>
+    </div>
   </div>
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <Button ref="#" texte="En savoir plus" />
   <p class="mb-19 mx-6 lg:mx-10 font-mulish text-orange1">
     Nous avons hâte de vous accueillir pour cette édition du festival qui allie

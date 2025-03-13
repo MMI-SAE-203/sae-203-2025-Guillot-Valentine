@@ -7,6 +7,7 @@ import { oneInvite } from "./backend.mjs";
 import { allActiviteByInviteId } from "./backend.mjs";
 import { allActiviteByInviteNom } from "./backend.mjs";
 import { updateById } from "./backend.mjs";
+import { createActivites } from "./backend.mjs";
 
 // try {
 // const records = await allFilm() ;
@@ -64,11 +65,11 @@ import { updateById } from "./backend.mjs";
 // console.error(e) ;
 // }
 
-try {
-    const data = {
-        "nom" : "Laurent",
-    }
-    await updateById('invite',"axk6iu7r6865pmx", data) ;
-} catch (e) {
-    console.error(e) ;
-}
+// try {
+//     const data = {
+//         "nom" : "Laurent",
+//     }
+//     await updateById('invite',"axk6iu7r6865pmx", data) ;
+// } catch (e) {
+//     console.error(e) ;
+// }

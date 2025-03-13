@@ -12,7 +12,6 @@ import Fleche from "../../assets/icons/fleche.svg";
     text="Au festival Cinénature, nous sommes ravis d'accueillir des invités prestigieux qui partageront leur passion du cinéma et de l'écologie. Réalisateurs, acteurs, jurys et autres professionnels du cinéma, chacun d'eux contribue à la richesse et à l'impact de cet événement."
   />
 
-
   {
     invites.map((invite) => (
       <div class="flex justify-center lg:justify-start lg:flex-row flex-col items-center">
@@ -42,4 +41,12 @@ import Fleche from "../../assets/icons/fleche.svg";
       </div>
     ))
   }
+  <button
+    class="flex gap-2 underline decoration-orange1 py-4 px-4 mb-19 ml-auto mr-20 rounded-2xl"
+  >
+    <span class="mt-1"><Fleche /></span>
+    <a class="text-orange1 text-xs font-bold" href={`/invite/add`}
+      >Ajouter un invité</a
+    >
+  </button>
 </Layout>
