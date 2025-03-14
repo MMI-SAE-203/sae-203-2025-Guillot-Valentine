@@ -3,7 +3,7 @@ import 'kleur/colors';
 import '@astrojs/internal-helpers/path';
 import '@astrojs/internal-helpers/remote';
 import { a as $$Picture } from './_astro_assets_Dgau7A_H.mjs';
-import { p as pb } from './backend_DWlajXT0.mjs';
+import { p as pb } from './backend_BJEn8W9H.mjs';
 
 const $$Astro = createAstro();
 const $$ImagePB = createComponent(($$result, $$props, $$slots) => {

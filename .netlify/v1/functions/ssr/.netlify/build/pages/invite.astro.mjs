@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderComponent, a as renderTemplate, d as addAttribute, m as maybeRenderHead } from '../chunks/astro/server_BCsyBXHU.mjs';
 import 'kleur/colors';
-import { d as allInvite } from '../chunks/backend_DWlajXT0.mjs';
+import { d as allInvite } from '../chunks/backend_BJEn8W9H.mjs';
 import { $ as $$Layout } from '../chunks/Layout_BHEj3APp.mjs';
 import { $ as $$Paragraphe } from '../chunks/Paragraphe_CIp0loCu.mjs';
 import { F as Fleche } from '../chunks/fleche_hZWTDP1B.mjs';
