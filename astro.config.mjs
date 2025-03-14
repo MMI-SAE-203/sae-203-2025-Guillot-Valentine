@@ -14,5 +14,10 @@ export default defineConfig({
   experimental: {svg: true},
   output: 'server',
   vite: {plugins: [tailwindcss()],},
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
+  image: {
+    domains: ['example.com'],
+  },
 });
