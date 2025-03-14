@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Paragraphe from "../components/Paragraphe.astro";
+---
+
+<Layout nom="Billetterie">
+  <Paragraphe
+    titre="Achetez vos billets"
+    texte="Vous pouvez retrouver ici, la billetterie du festival."
+  />
+  <form
+    class="flex flex-col w-full max-w-2xl mx-auto px-4 my-4"
+    action="#"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <span
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
+      >Choix Tarifs</span
+    >
+    <select
+      id="lieu"
+      name="lieu"
+      required
+      class="mt-2 p-2 border border-green-500 rounded-md w-full bg-white"
+    >
+      <option value="" disabled selected hidden>Choisir un tarif</option>
+      <option value="Pass Journée">Pass Journée (12€)</option>
+      <option value="Pass 4 Jours">Pass 4 Jours (40€)</option>
+      <option value="Tarifs Réduits">Tarifs Réduits (8€)</option>
+    </select>
+
+    <span
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
+      >Nombre de place</span
+    >
+    <select
+      id="lieu"
+      name="lieu"
+      required
+      class="mt-2 p-2 border border-green-500 rounded-md w-full bg-white"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <span
+      class="font-mulish mt-3 text-orange1 after:ml-0.5 after:text-vert after:content-['*']"
+      >Document de certification pour Tarifs Réduits</span
+    >
+    <input type="file" name="Document-certification" />
+    <button
+      class="bg-orange1 rounded mt-10 px-7 py-2 font-mulish uppercase text-blanc my-4"
+      type="submit">Acheter</button
+    >
+  </form>
+</Layout>
