@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('http://sae203.valentine-guillot.fr:443');
+const pb = new PocketBase('https://sae203.valentine-guillot.fr:443');
 
 export async function allFilm() {
     let records = await pb.collection('film').getFullList({sort: 'date' });
