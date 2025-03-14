@@ -22,16 +22,20 @@ const { nom } = Astro.props;
     <title>{titre}</title>
   </head>
   <body>
-    <Header />
-    <div class="static">
-      <Image
-        class="w-full max-w h-136 object-cover"
-        src={ImgHeader}
-        alt="header"
-      />
+    <div class="relative z-20">
+    <Header /></div>
+    <div class="relative">
       <div
-        class="absolute lg:text-4xl top-60 mx-10 "
+        class="relative before:absolute before:z-10 before:inset-0 before:bg-orange1 before:mix-blend-multiply before:opacity-50"
       >
+        <Image
+          class="w-full max-w h-136 object-cover"
+          src={ImgHeader}
+          alt="header"
+        />
+      </div>
+
+      <div class="absolute lg:text-4xl top-60 mx-10">
         <h1 class="lg:text-4xl">{nom}</h1>
       </div>
     </div>
