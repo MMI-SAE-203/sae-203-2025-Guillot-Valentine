@@ -18,6 +18,6 @@ export default defineConfig({
     imageCDN: false,
   }),
   image: {
-    domains: ['example.com'],
+    domains: ['sae203.valentine-guillot.fr'],
   },
 });
